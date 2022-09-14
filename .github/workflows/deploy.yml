@@ -1,0 +1,38 @@
+name: Github Pages Deploy
+
+# By default, runs if you push to master. keeps your deployed app in sync with master branch.
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write # for committing to gh-pages branch.
+
+jobs:
+  build-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout book sources
+        uses: actions/checkout@v2 # repo checkout
+        with:
+          fetch-depth: 0
+      - name: Install rust toolchain
+        uses: actions-rs/toolchain@v1 # get rust toolchain for wasm
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Install mdbook
+      - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
+      - name: Build # build
+        run: mdbook build && mdbook test
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.1.7
+        with:
+          branch: gh-pages
+          folder: book
+          # this option will not maintain any history of your previous pages deployment
+          # set to false if you want all page build to be committed to your gh-pages branch history
+          single-commit: true
+          name: CI Deploy
