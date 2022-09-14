@@ -12,7 +12,6 @@ jobs:
   build-github-pages:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout book sources
         uses: actions/checkout@v2 # repo checkout
         with:
@@ -26,7 +25,7 @@ jobs:
           override: true
 
       - name: Install mdbook
-      - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
+      - run: cargo install mdbook
 
       - name: Build # build
         run: mdbook build && mdbook test
@@ -37,4 +36,3 @@ jobs:
           branch: gh-pages
           folder: book
           single-commit: true
-          name: CI Deploy
