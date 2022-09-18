@@ -13,7 +13,7 @@ fn foo(
 )
 ```
 
-1. using `<T>` for generics instead of `[T]`. 
+2. using `<T>` for generics instead of `[T]`. 
 **Reason**:
 Tokens like `<` and `>` can appear alone as greater than or less than operators. but `[` and `]` brackets always appear in pairs. 
 This also makes parsing ambiguous in expression contexts and that's why we have `::<T>` turbofish syntax.
