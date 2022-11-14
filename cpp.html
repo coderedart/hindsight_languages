@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Rust - Hindsight Language Development</title>
+        <title>C++ - Hindsight Language Development</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">1.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/syntax.html"><strong aria-hidden="true">1.1.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="rust/types.html"><strong aria-hidden="true">1.2.</strong> Types</a></li><li class="chapter-item expanded "><a href="rust/design.html"><strong aria-hidden="true">1.3.</strong> Design</a></li><li class="chapter-item expanded "><a href="rust/tooling.html"><strong aria-hidden="true">1.4.</strong> Tooling</a></li></ol></li><li class="chapter-item expanded "><a href="cpp.html"><strong aria-hidden="true">2.</strong> C++</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">3.</strong> C</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">1.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/syntax.html"><strong aria-hidden="true">1.1.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="rust/types.html"><strong aria-hidden="true">1.2.</strong> Types</a></li><li class="chapter-item expanded "><a href="rust/design.html"><strong aria-hidden="true">1.3.</strong> Design</a></li><li class="chapter-item expanded "><a href="rust/tooling.html"><strong aria-hidden="true">1.4.</strong> Tooling</a></li></ol></li><li class="chapter-item expanded "><a href="cpp.html" class="active"><strong aria-hidden="true">2.</strong> C++</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">3.</strong> C</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,25 +143,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
+                        <h1 id="c"><a class="header" href="#c">C++</a></h1>
+<p>C++ is a statically typed compiled langauge </p>
 <h2 id="negatives"><a class="header" href="#negatives">Negatives</a></h2>
-<h3 id="compatibility"><a class="header" href="#compatibility">Compatibility</a></h3>
+<h3 id="backwards-compatability"><a class="header" href="#backwards-compatability">Backwards Compatability</a></h3>
+<p>C++ evolved from C inheriting all the negatives of <a href="./c.html">C languages</a>. 
+This means that unlike languages which have a clean slate to start from, C++ already had a bunch of cruft by the time it was already standardized. 
+C/C++ are often lumped in together and this restricts how far c++ can evolve away from C. 
+Anything added to C++ stays forever even if its unused by a large majority or is considered a design mistake.
+Any new feature that wants to make into the language must also consider the interaction with all pre-existing features as the older features cannot be replaced / deprecated. </p>
+<blockquote>
+<p>Rust has editions to deal with breakage in a defined manner</p>
+</blockquote>
+<h3 id="abi"><a class="header" href="#abi">ABI</a></h3>
+<p>Everything in C++ is ABI stable by default.
+once something is added to the libstd++, its ABI cannot be changed without breaking all downstream users of the library.</p>
+<h3 id="build-systems-and-dependency-management"><a class="header" href="#build-systems-and-dependency-management">Build Systems and Dependency management</a></h3>
 <ol>
-<li>Rust's std library has no way of allowing breaking changes.</li>
-<li><a href="https://github.com/rust-lang/rust/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3Arust-2-breakage-wishlist+">rust 2.0 breakage wishlist</a></li>
+<li>C++ doesn't have a standard build system.</li>
+<li>The most popular metabuild tool at present is cmake, which has a custom DSL forcing users to learn yet another language to build C++. </li>
+<li>Some projects don't use Cmake and also require a specific combination of compiler switches to compile and usually, it involves reading their README page to copy-paste custom commands and praying to god.</li>
+<li>Most hello world C++ tutorials also don't teach cmake (or any build system) and adding / linking libraries. This makes it a continuous painful area for a new C++ programmer working on his first project.</li>
 </ol>
-<h3 id="standard-library"><a class="header" href="#standard-library">Standard Library</a></h3>
-<ol>
-<li><code>Range</code> implementing <code>Iterator</code> instead of <code>IntoIterator</code>. and thus, unable to implement <code>Copy</code></li>
-<li>not having an official runtime caused an ecosystem split where some libraries would only work with a particular runtime (tokio / async-std)</li>
-</ol>
+<blockquote>
+<p>Most modern languages like Rust (Cargo), Go, JS (npm) now come with a default dependency manager and central library repositories. </p>
+</blockquote>
+<h3 id="committee-beaurocracy"><a class="header" href="#committee-beaurocracy">Committee Beaurocracy</a></h3>
+<h3 id="macros"><a class="header" href="#macros">Macros</a></h3>
+<h3 id="coherency"><a class="header" href="#coherency">Coherency</a></h3>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="rust/tooling.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
-                                                    <a rel="next" href="rust/syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="c.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -171,8 +190,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="rust/tooling.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
-                                    <a rel="next" href="rust/syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="c.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>

@@ -4,35 +4,36 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Hindsight Language Development</title>
-        <meta name="robots" content="noindex" />
-
+                <meta name="robots" content="noindex" />
+                
 
         <!-- Custom HTML head -->
         
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-
-    </head>
+        
+            </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
@@ -82,15 +83,15 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
-            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">1.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/syntax.html"><strong aria-hidden="true">1.1.</strong> Syntax</a></li><li class="chapter-item expanded "><a href="rust/types.html"><strong aria-hidden="true">1.2.</strong> Types</a></li><li class="chapter-item expanded "><a href="rust/design.html"><strong aria-hidden="true">1.3.</strong> Design</a></li><li class="chapter-item expanded "><a href="rust/tooling.html"><strong aria-hidden="true">1.4.</strong> Tooling</a></li></ol></li><li class="chapter-item expanded "><a href="cpp.html"><strong aria-hidden="true">2.</strong> C++</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">3.</strong> C</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -106,22 +107,22 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">Hindsight Language Development</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-
+                                                                        
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -131,7 +132,7 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -143,48 +144,278 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
+<h2 id="negatives"><a class="header" href="#negatives">Negatives</a></h2>
+<h3 id="compatibility"><a class="header" href="#compatibility">Compatibility</a></h3>
+<ol>
+<li>Rust's std library has no way of allowing breaking changes.</li>
+<li><a href="https://github.com/rust-lang/rust/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3Arust-2-breakage-wishlist+">rust 2.0 breakage wishlist</a></li>
+</ol>
+<h3 id="standard-library"><a class="header" href="#standard-library">Standard Library</a></h3>
+<ol>
+<li><code>Range</code> implementing <code>Iterator</code> instead of <code>IntoIterator</code>. and thus, unable to implement <code>Copy</code></li>
+<li>not having an official runtime caused an ecosystem split where some libraries would only work with a particular runtime (tokio / async-std)</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="syntax"><a class="header" href="#syntax">Syntax</a></h2>
+<p>https://www.peter.bertok.com/posts/rust_refactoring_and_syntax/</p>
+<h3 id="struct-literals"><a class="header" href="#struct-literals">Struct Literals</a></h3>
+<p>Struct literal syntax used <code>:</code> instead of <code>=</code>.
+This also ties in with the function syntax being different than struct syntax <sup class="footnote-reference"><a href="#struct_literal_syntax">1</a></sup><sup class="footnote-reference"><a href="#struct_func_syntax">2</a></sup></p>
+<blockquote>
+<p>{} vs. (), named vs. positional, shorthand syntax</p>
+</blockquote>
+<p>In an ideal world, both would use the same syntax like:</p>
+<pre><code class="language-rust ignore">struct Foo(
+    hello: String
+)
+fn foo(
+    hello: String
+)
+</code></pre>
+<h3 id="generics"><a class="header" href="#generics">Generics</a></h3>
+<p>Using <code>&lt;T&gt;</code> for generics instead of <code>[T]</code>. 
+<strong>Reason</strong>:
+Tokens like <code>&lt;</code> and <code>&gt;</code> can appear alone as greater than or less than operators. but <code>[</code> and <code>]</code> brackets always appear in pairs. 
+This also makes parsing ambiguous in expression contexts and that's why we have <code>::&lt;T&gt;</code> turbofish syntax.</p>
+<h3 id="boilerplatey-defaults-of-struct"><a class="header" href="#boilerplatey-defaults-of-struct">BoilerPlatey Defaults of struct</a></h3>
+<p>adding default values per field in structs is boiler plate-y.<sup class="footnote-reference"><a href="#default_struct_fields">3</a></sup></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Window {
+    x: u16,
+    y: u16,
+    visible: bool,
+}
+
+impl Window {
+    fn new_with_visibility(x: u16, y: u16, visible: bool) -&gt; Self {
+        Window {
+            x, y, visible
+        }
+    }
+
+    fn new(x: u16, y: u16) -&gt; Self {
+        Window::new_with_visibility(x, y, false)
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>compare to equivalent kotlin</p>
+<pre><code class="language-kotlin">class Window(x: Int, y: Int, visible: Boolean = false)
+</code></pre>
+<h3 id="inconsistency--copy-paste-friendliness"><a class="header" href="#inconsistency--copy-paste-friendliness">Inconsistency / Copy-Paste Friendliness</a></h3>
+<p>inconsistent, repetitive syntax for doing the same thing in different contexts.<sup class="footnote-reference"><a href="#csharp_rust">4</a></sup>
+In C#, say you have this block of repetitive looking code:</p>
+<pre><code class="language-csharp">void Something()
+{
+    int    a_size = -1; // default value
+    string a_name = &quot;default&quot;;
+    int    b_size = -1; // default value
+    string b_bame = &quot;default&quot;;
+
+    string a_desc = string.Format(&quot;{0} is {1} big&quot;, a_name, a_size);
+}
+</code></pre>
+<p>The repeated variables probably make you feel itchy, so you decide to extract them to a class or struct, so:</p>
+<pre><code class="language-csharp">class Thingie {
+    int a_size = -1; // default value
+    string a_name = &quot;default&quot;;
+}
+</code></pre>
+<p>just move the declaration into a struct with copy/paste.
+with rust, OTOH:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn something() {
+    let a_size: i32 = -1;
+    let a_name: String = &quot;default&quot;.to_string();
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>if we move this to a struct,</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Thingie {
+    /* nope. we cannot copy paste like this
+    let a_size: i32 = -1;
+    let a_name: String = &quot;default&quot;.to_string();
+    */
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>instead, we will have to </p>
+<ol>
+<li>remove the let keyword from each line</li>
+<li>move the default values into a separate trait impl of Default</li>
+<li>replace the semicolons with commas</li>
+</ol>
+<div class="footnote-definition" id="default_struct_fields"><sup class="footnote-definition-label">3</sup>
+<p>https://www.reddit.com/r/rust/comments/xcw6m5/a_personal_list_of_rust_grievances/io83zoj/
+<sup class="footnote-reference"><a href="#csharp_rust">4</a></sup>: https://www.reddit.com/r/rust/comments/wvynot/does_rust_have_any_design_mistakes/ilkgkzg/
+<sup class="footnote-reference"><a href="#struct_literal_syntax">1</a></sup>: https://www.reddit.com/r/rust/comments/xcw6m5/a_personal_list_of_rust_grievances/io9fznq/
+<sup class="footnote-reference"><a href="#struct_func_syntax">2</a></sup>: https://www.reddit.com/r/rust/comments/xcw6m5/a_personal_list_of_rust_grievances/ioby850/</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="typesystem"><a class="header" href="#typesystem">Typesystem</a></h2>
+<h3 id="auto-traits"><a class="header" href="#auto-traits">Auto traits</a></h3>
+<p>Some traits like Send and Sync are auto derived.
+This causes one to <em>accidentally</em> break backwards compatibility unknowingly when they change some internal implementation . </p>
+<h3 id="linear-types"><a class="header" href="#linear-types">Linear types</a></h3>
+<p>we cannot express in rust that a type <em>must</em> be used exactly once. <sup class="footnote-reference"><a href="#linear_types">1</a></sup></p>
+<div class="footnote-definition" id="linear_types"><sup class="footnote-definition-label">1</sup>
+<p>https://faultlore.com/blah/linear-rust/</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h3 id="async"><a class="header" href="#async">Async</a></h3>
+<p>Your function cannot be generic over async code.</p>
+<h4 id="coloring"><a class="header" href="#coloring">Coloring</a></h4>
+<p>Either it is async or it is not. so, when you add a little bit of async, it starts infecting the rest of the codebase spreading async keyword everywhere.</p>
+<ol>
+<li>Every function has a color. 
+yep. <code>async fn</code> vs <code>fn</code> -&gt; returns future or not. </li>
+<li>The way you call a function depends on its color.
+yes. .await syntax. </li>
+<li>You can only call a red function from within another red function. 
+nope. technically, you can block_on a future inside a sync fn. </li>
+<li>Red functions are more painful to call.
+yep. well, it has more to do with the synchronization / borrowing issues rather than just calling them with some_fn().await. </li>
+<li>Some core library functions are red.
+yes, but not yet because rust doesn't really have async fns in std yet. instead we need to use external crates like async-std / tokio for which this is true. 
+unless we get keyword generics<sup class="footnote-reference"><a href="#keyword_generics">1</a></sup> , we will have a async version of a lot of std apis like fs, sync (mutexes, channels ), net and so on. </li>
+</ol>
+<h4 id="runtime"><a class="header" href="#runtime">Runtime</a></h4>
+<p>Unlike garbage collected languages like Go or .Net family or Javascript, Rust has to work <em>without</em> a runtime. 
+This is made worse because Rust doesn't actually provide a runtime in std library either. So, we have to go find external crates to find a suitable runtime. This can be considered a good thing and a bad thing. On one hand, we can explicitly choose the most suitable runtime for your workload, but OTOH It is a long-lasting choice for your project. The runtime might be abandoned or your organization might not allow dependencies which are not backed by an organization. </p>
+<h3 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h3>
+<p>Rust has two different ways of dealing with errors. </p>
+<ol>
+<li>Panic machinery
+This is kinda like exceptions. It starts throwing the exception up the call chain until someone catches it or program crashes.
+Has stack unwinding to provide a backtrace.
+The primary advantage is that a function doesn't have to encode in the fn signature that it can panic. 
+Similar to an allocator, this is a global thing. so, we can register a custom panic handler to log errors and so on before unwinding stack.</li>
+<li>Result Type
+This is a generic enum <code>Result&lt;T, E&gt;</code> with an <code>Ok(T)</code> variant and an <code>Err(E)</code> variant. This allows you to encode the return type clearly. 
+Any function that wants the resulting <code>T</code> of this <code>Result</code> MUST deal with the error case explicitly (at the very least, simply by <code>unwrap</code>ing to panic).
+Allows explicit <code>Error</code> types which you can recover from by simply handling the error and using a default T or calling the previous fn again etc..</li>
+</ol>
+<p>From the reddit post<sup class="footnote-reference"><a href="#cpp_rust_exception_error">2</a></sup> :</p>
+<h4 id="exception-agnosticism-is-easy-but-error-agnosticism-is-not"><a class="header" href="#exception-agnosticism-is-easy-but-error-agnosticism-is-not">Exception-Agnosticism is Easy, but Error-Agnosticism is Not</a></h4>
+<p>Exception vs Error can be considered as <code>panic</code> vs <code>result</code>.
+We cannot bubble up an <code>Result</code> automatically when we don't care about it. we have to encode it in the fn signature.
+so, if an infallible function becomes fallible, it will be a breaking change. 
+Whereas, with panicking, we don't have to worry about this. let the caller handle the panic, we can just work with the code under the assumption that there will be no errors. </p>
+<h4 id="boiler-plate"><a class="header" href="#boiler-plate">Boiler plate</a></h4>
+<p>You will have to use match statements when dealing with error variants. Leads to lots of noise sometimes. and this noise is almost at every callsite even thought most of them repeat the same match code. </p>
+<pre><code class="language-rust ignore">match fallible_fn() {
+    Ok(_) =&gt; {}
+    Err(e) =&gt; {
+        // do something with e. often, e is an enum itself
+        match e {
+            ErrorA =&gt; {}
+            // ...
+            ErrorX =&gt; {}
+        }
+    }
+}
+</code></pre>
+<h3 id="std-library-versioning"><a class="header" href="#std-library-versioning">std library versioning</a></h3>
+<p>This is not a rust specific issue. 
+Rust can break backwards comaptibility in core language using editions. but, because two crates interacting with each other use the same std library, 
+Rust cannot break backwards compatibility in std library forever<sup class="footnote-reference"><a href="#std_back_compat">3</a></sup>. </p>
+<div class="footnote-definition" id="keyword_generics"><sup class="footnote-definition-label">1</sup>
+<p>https://blog.rust-lang.org/inside-rust/2022/07/27/keyword-generics.html
+<sup class="footnote-reference"><a href="#cpp_rust_exception_error">2</a></sup>: https://www.reddit.com/r/rust/comments/xj2a23/my_thoughts_on_rust_and_c/
+<sup class="footnote-reference"><a href="#std_back_compat">3</a></sup>: https://news.ycombinator.com/item?id=22558259</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="tooling"><a class="header" href="#tooling">Tooling</a></h2>
+<h3 id="beginner-friendliness"><a class="header" href="#beginner-friendliness">Beginner Friendliness</a></h3>
+<ol>
+<li>Cargo is really great. serves as both a build system and a dependency manager. </li>
+<li>crates.io, docs.rs, rustup.rs etc.. are all great websites </li>
+</ol>
+<h3 id="performance"><a class="header" href="#performance">Performance</a></h3>
+<ol>
+<li>compile times are atrocious. </li>
+</ol>
+<h3 id="issues"><a class="header" href="#issues">Issues</a></h3>
+<ol>
+<li>macros also make it harder to develop IDE tooling for rust.</li>
+<li>Proc macros and build.rs are not sandboxed <em>at compilation time</em>. So, random build scripts from external crates can do whatever they want.</li>
+<li>Rust-analyzer + intellij rust plugin are the main helpers, but neither of them are lightweight.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c"><a class="header" href="#c">C++</a></h1>
+<p>C++ is a statically typed compiled langauge </p>
+<h2 id="negatives-1"><a class="header" href="#negatives-1">Negatives</a></h2>
+<h3 id="backwards-compatability"><a class="header" href="#backwards-compatability">Backwards Compatability</a></h3>
+<p>C++ evolved from C inheriting all the negatives of <a href="./c.html">C languages</a>. 
+This means that unlike languages which have a clean slate to start from, C++ already had a bunch of cruft by the time it was already standardized. 
+C/C++ are often lumped in together and this restricts how far c++ can evolve away from C. 
+Anything added to C++ stays forever even if its unused by a large majority or is considered a design mistake.
+Any new feature that wants to make into the language must also consider the interaction with all pre-existing features as the older features cannot be replaced / deprecated. </p>
+<blockquote>
+<p>Rust has editions to deal with breakage in a defined manner</p>
+</blockquote>
+<h3 id="abi"><a class="header" href="#abi">ABI</a></h3>
+<p>Everything in C++ is ABI stable by default.
+once something is added to the libstd++, its ABI cannot be changed without breaking all downstream users of the library.</p>
+<h3 id="build-systems-and-dependency-management"><a class="header" href="#build-systems-and-dependency-management">Build Systems and Dependency management</a></h3>
+<ol>
+<li>C++ doesn't have a standard build system.</li>
+<li>The most popular metabuild tool at present is cmake, which has a custom DSL forcing users to learn yet another language to build C++. </li>
+<li>Some projects don't use Cmake and also require a specific combination of compiler switches to compile and usually, it involves reading their README page to copy-paste custom commands and praying to god.</li>
+<li>Most hello world C++ tutorials also don't teach cmake (or any build system) and adding / linking libraries. This makes it a continuous painful area for a new C++ programmer working on his first project.</li>
+</ol>
+<blockquote>
+<p>Most modern languages like Rust (Cargo), Go, JS (npm) now come with a default dependency manager and central library repositories. </p>
+</blockquote>
+<h3 id="committee-beaurocracy"><a class="header" href="#committee-beaurocracy">Committee Beaurocracy</a></h3>
+<h3 id="macros"><a class="header" href="#macros">Macros</a></h3>
+<h3 id="coherency"><a class="header" href="#coherency">Coherency</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c-1"><a class="header" href="#c-1">C</a></h1>
+<h2 id="negatives-2"><a class="header" href="#negatives-2">Negatives</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-
-
+                        
+                        
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-
-            </nav>
+                
+                            </nav>
 
         </div>
 
-
-
-
-        <script type="text/javascript">
+        
+        
+        
+                <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-
-
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-
+        
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-
-        <script type="text/javascript">
+        
+                        <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-
+                
     </body>
 </html>
