@@ -38,8 +38,8 @@ so, if an infallible function becomes fallible, it will be a breaking change.
 Whereas, with panicking, we don't have to worry about this. let the caller handle the panic, we can just work with the code under the assumption that there will be no errors. 
 #### Boiler plate
 You will have to use match statements when dealing with error variants. Leads to lots of noise sometimes. and this noise is almost at every callsite even thought most of them repeat the same match code. 
-```rust
-match fallible_fn()? {
+```rust,ignore
+match fallible_fn() {
     Ok(_) => {}
     Err(e) => {
         // do something with e. often, e is an enum itself

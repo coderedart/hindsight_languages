@@ -7,7 +7,7 @@ This also ties in with the function syntax being different than struct syntax [^
 > {} vs. (), named vs. positional, shorthand syntax
 
 In an ideal world, both would use the same syntax like:
-```rust
+```rust,ignore
 struct Foo(
     hello: String
 )
